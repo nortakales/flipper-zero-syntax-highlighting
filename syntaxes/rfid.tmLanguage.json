@@ -1,0 +1,116 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Flipper Zero - RFID",
+	"patterns": [
+		{
+			"include": "source.flipper"
+		},
+		{
+			"include": "#comment"
+		},
+		{
+			"include": "#filetype"
+		},
+		{
+			"include": "#version"
+		},
+		{
+			"include": "#key_type"
+		},
+		{
+			"include": "#data"
+		}
+	],
+	"repository": {
+		"blah": {
+			"patterns": [
+				{
+					"include": "#testrepo"
+				}
+			]
+		},
+		"comment": {
+			"patterns": [
+				{
+					"name": "comment.line.flipper.rfid",
+					"match": "^#.*$"
+				}
+			]
+		},
+		"filetype": {
+			"name": "keyword.control.flipper.rfid",
+			"begin": "^Filetype: ",
+			"end": "$",
+			"patterns": [
+				{
+					"name": "entity.name.class.flipper.rfid",
+					"match": "Flipper RFID key"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"version": {
+			"name": "keyword.control.flipper.rfid",
+			"begin": "^Version: ",
+			"end": "$",
+			"patterns": [
+				{
+					"include": "#integer"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"key_type": {
+			"name": "keyword.control.flipper.rfid",
+			"begin": "^Key type: ",
+			"end": "$",
+			"patterns": [
+				{
+					"name": "entity.name.class.flipper.rfid",
+					"match": "(EM4100|H10301|Idteck|Indala26|IoProxXSF|AWID|FDX-A|FDX-B|HIDProx|HIDExt|Pyramid|Viking|Jablotron|Paradox|PAC/Stanley|Keri|Gallagher)"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"data": {
+			"name": "keyword.control.flipper.rfid",
+			"begin": "^Data: ",
+			"end": "$",
+			"patterns": [
+				{
+					"include": "#hex"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"string": {
+			"name": "string.flipper.rfid",
+			"match": ".+"
+		},
+		"hex": {
+			"name": "constant.character.flipper.rfid",
+			"match": "[A-F0-9 ]+"
+		},
+		"integer": {
+			"name": "constant.numeric.flipper.rfid",
+			"match": "[0-9]+"
+		},
+		"float": {
+			"name": "constant.numeric.flipper.rfid",
+			"match": "[0-9]+(.[0-9]*)?"
+		},
+		"invalid-fallback": {
+			"name": "invalid.flipper.rfid",
+			"match": ".*"
+		}
+	},
+	"scopeName": "source.flipper.rfid"
+}

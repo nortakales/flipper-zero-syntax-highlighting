@@ -1,0 +1,201 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Flipper Zero - Infrared",
+	"patterns": [
+		{
+			"include": "#comment"
+		},
+		{
+			"include": "#filetype"
+		},
+		{
+			"include": "#version"
+		},
+		{
+			"include": "#name"
+		},
+		{
+			"include": "#type"
+		},
+		{
+			"include": "#protocol"
+		},
+		{
+			"include": "#address"
+		},
+		{
+			"include": "#command"
+		},
+		{
+			"include": "#frequency"
+		},
+		{
+			"include": "#duty_cycle"
+		},
+		{
+			"include": "#data"
+		}
+	],
+	"repository": {
+		"comment": {
+			"patterns": [
+				{
+					"name": "comment.line.flipper.ir",
+					"match": "^#.*$"
+				}
+			]
+		},
+		"filetype": {
+			"name": "keyword.control.flipper.ir",
+			"begin": "^Filetype: ",
+			"end": "$",
+			"patterns": [
+				{
+					"name": "entity.name.class.flipper.ir",
+					"match": "(IR library file|IR signals file)"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"version": {
+			"name": "keyword.control.flipper.ir",
+			"begin": "^Version: ",
+			"end": "$",
+			"patterns": [
+				{
+					"include": "#integer"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"name": {
+			"name": "keyword.control.flipper.ir",
+			"begin": "^name: ",
+			"end": "$",
+			"patterns": [
+				{
+					"include": "#string"
+				}
+			]
+		},
+		"type": {
+			"name": "keyword.control.flipper.ir",
+			"begin": "^type: ",
+			"end": "$",
+			"patterns": [
+				{
+					"name": "entity.name.class.flipper.ir",
+					"match": "parsed|raw"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"protocol": {
+			"name": "keyword.control.flipper.ir",
+			"begin": "^protocol: ",
+			"end": "$",
+			"patterns": [
+				{
+					"name": "entity.name.class.flipper.ir",
+					"match": "(NEC|NECext|NEC42|NEC42ext|Samsung32|RC6|RC5|RC5X|SIRC|SIRC15|SIRC20|Kaseikyo|RCA)"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"address": {
+			"name": "keyword.control.flipper.ir",
+			"begin": "^address: ",
+			"end": "$",
+			"patterns": [
+				{
+					"include": "#hex"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"command": {
+			"name": "keyword.control.flipper.ir",
+			"begin": "^command: ",
+			"end": "$",
+			"patterns": [
+				{
+					"include": "#hex"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"frequency": {
+			"name": "keyword.control.flipper.ir",
+			"begin": "^frequency: ",
+			"end": "$",
+			"patterns": [
+				{
+					"include": "#integer"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"duty_cycle": {
+			"name": "keyword.control.flipper.ir",
+			"begin": "^duty_cycle: ",
+			"end": "$",
+			"patterns": [
+				{
+					"include": "#float"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"data": {
+			"name": "keyword.control.flipper.ir",
+			"begin": "^data: ",
+			"end": "$",
+			"patterns": [
+				{
+					"name": "constant.numeric.flipper.ir",
+					"match": "[0-9 ]+"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"string": {
+			"name": "string.flipper.ir",
+			"match": ".+"
+		},
+		"hex": {
+			"name": "constant.character.flipper.ir",
+			"match": "[A-F0-9 ]+"
+		},
+		"integer": {
+			"name": "constant.numeric.flipper.ir",
+			"match": "[0-9]+"
+		},
+		"float": {
+			"name": "constant.numeric.flipper.ir",
+			"match": "[0-9]+(.[0-9]*)?"
+		},
+		"invalid-fallback": {
+			"name": "invalid.flipper.ir",
+			"match": ".*"
+		}
+	},
+	"scopeName": "source.flipper.ir"
+}

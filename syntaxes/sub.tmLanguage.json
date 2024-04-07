@@ -1,0 +1,193 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Flipper Zero - SubGhz",
+	"patterns": [
+		{
+			"include": "#comment"
+		},
+		{
+			"include": "#filetype"
+		},
+		{
+			"include": "#version"
+		},
+		{
+			"include": "#frequency"
+		},
+		{
+			"include": "#preset"
+		},
+		{
+			"include": "#protocol"
+		},
+		{
+			"include": "#bit"
+		},
+		{
+			"include": "#key"
+		},
+		{
+			"include": "#te"
+		},
+		{
+			"include": "#secplus_packet_1"
+		},
+		{
+			"include": "#raw_data"
+		}
+	],
+	"repository": {
+		"comment": {
+			"patterns": [
+				{
+					"name": "comment.line.flipper.sub",
+					"match": "^#.*$"
+				}
+			]
+		},
+		"filetype": {
+			"name": "keyword.control.flipper.sub",
+			"begin": "^Filetype: ",
+			"end": "$",
+			"patterns": [
+				{
+					"name": "entity.name.class.flipper.sub",
+					"match": "Flipper SubGhz (RAW|Key) File"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"version": {
+			"name": "keyword.control.flipper.sub",
+			"begin": "^Version: ",
+			"end": "$",
+			"patterns": [
+				{
+					"include": "#integer"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"frequency": {
+			"name": "keyword.control.flipper.sub",
+			"begin": "^Frequency: ",
+			"end": "$",
+			"patterns": [
+				{
+					"include": "#integer"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"preset": {
+			"name": "keyword.control.flipper.sub",
+			"begin": "^Preset: ",
+			"end": "$",
+			"patterns": [
+				{
+					"name": "entity.name.class.flipper.sub",
+					"match": "(FuriHalSubGhzPresetOok270Async|FuriHalSubGhzPresetOok650Async|FuriHalSubGhzPreset2FSKDev238Async|FuriHalSubGhzPreset2FSKDev476Async|FuriHalSubGhzPresetCustom)"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"protocol": {
+			"name": "keyword.control.flipper.sub",
+			"begin": "^Protocol: ",
+			"end": "$",
+			"patterns": [
+				{
+					"name": "entity.name.class.flipper.sub",
+					"match": ".+"
+				}
+			]
+		},
+		"bit": {
+			"name": "keyword.control.flipper.sub",
+			"begin": "^Bit: ",
+			"end": "$",
+			"patterns": [
+				{
+					"include": "#integer"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"key": {
+			"name": "keyword.control.flipper.sub",
+			"begin": "^Key: ",
+			"end": "$",
+			"patterns": [
+				{
+					"include": "#hex"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"te": {
+			"name": "keyword.control.flipper.sub",
+			"begin": "^TE: ",
+			"end": "$",
+			"patterns": [
+				{
+					"include": "#integer"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"secplus_packet_1": {
+			"name": "keyword.control.flipper.sub",
+			"begin": "^Secplus_packet_1: ",
+			"end": "$",
+			"patterns": [
+				{
+					"include": "#hex"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"raw_data": {
+			"name": "keyword.control.flipper.sub",
+			"begin": "^RAW_Data: ",
+			"end": "$",
+			"patterns": [
+				{
+					"name": "constant.numeric.flipper.sub",
+					"match": "(-\\d+ )?(\\d+ -\\d+ ?)+(\\d+)?"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"hex": {
+			"name": "constant.character.flipper.sub",
+			"match": "[A-F0-9 ]+"
+		},
+		"invalid-fallback": {
+			"name": "invalid.flipper.sub",
+			"match": ".*"
+		},
+		"integer": {
+			"name": "constant.numeric.flipper.sub",
+			"match": "[0-9]+"
+		}
+	},
+	"scopeName": "source.flipper.sub"
+}

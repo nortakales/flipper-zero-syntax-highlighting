@@ -1,0 +1,98 @@
+{
+  "name": "flipper-zero-syntax-highlighting",
+  "displayName": "Flipper Zero: Syntax Highlighting",
+  "description": "Syntax highlighting for Flipper Zero files",
+  "publisher": "nortakales",
+  "version": "1.0.0",
+  "engines": {
+    "vscode": "^1.88.0"
+  },
+  "keywords": [
+    "flipper zero",
+    "nfc",
+    "subghz",
+    "rfid",
+    "infrared"
+  ],
+  "categories": [
+    "Programming Languages"
+  ],
+  "homepage": "https://github.com/nortakales/flipper-zero-syntax-highlighting",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nortakales/flipper-zero-syntax-highlighting.git"
+  },
+  "sponsor": {
+    "url": "https://www.buymeacoffee.com/nortakales"
+  },
+  "bugs": {
+    "url": "https://github.com/nortakales/flipper-zero-syntax-highlighting/issues"
+  },
+  "icon": "resources/icon.png",
+  "contributes": {
+    "languages": [
+      {
+        "id": "flipper-ir",
+        "aliases": [
+          "Flipper Zero - Infrared"
+        ],
+        "extensions": [
+          ".ir"
+        ],
+        "configuration": "./language-configuration/ir.json"
+      },
+      {
+        "id": "flipper-sub",
+        "aliases": [
+          "Flipper Zero - SubGhz"
+        ],
+        "extensions": [
+          ".sub"
+        ],
+        "configuration": "./language-configuration/sub.json"
+      },
+      {
+        "id": "flipper-nfc",
+        "aliases": [
+          "Flipper Zero - NFC"
+        ],
+        "extensions": [
+          ".nfc"
+        ],
+        "configuration": "./language-configuration/nfc.json"
+      },
+      {
+        "id": "flipper-rfid",
+        "aliases": [
+          "Flipper Zero - RFID"
+        ],
+        "extensions": [
+          ".rfid"
+        ],
+        "configuration": "./language-configuration/rfid.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "flipper-ir",
+        "scopeName": "source.flipper.ir",
+        "path": "./syntaxes/ir.tmLanguage.json"
+      },
+      {
+        "language": "flipper-sub",
+        "scopeName": "source.flipper.sub",
+        "path": "./syntaxes/sub.tmLanguage.json"
+      },
+      {
+        "language": "flipper-nfc",
+        "scopeName": "source.flipper.nfc",
+        "path": "./syntaxes/nfc.tmLanguage.json"
+      },
+      {
+        "language": "flipper-rfid",
+        "scopeName": "source.flipper.rfid",
+        "path": "./syntaxes/rfid.tmLanguage.json"
+      }
+    ]
+  }
+}

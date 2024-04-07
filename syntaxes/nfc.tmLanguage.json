@@ -1,0 +1,638 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Flipper Zero - NFC",
+	"patterns": [
+		{
+			"include": "#comment"
+		},
+		{
+			"include": "#filetype"
+		},
+		{
+			"include": "#version"
+		},
+		{
+			"include": "#device_type"
+		},
+		{
+			"include": "#uid"
+		},
+		{
+			"include": "#atqa"
+		},
+		{
+			"include": "#sak"
+		},
+		{
+			"include": "#application_data"
+		},
+		{
+			"include": "#protocol_info"
+		},
+		{
+			"include": "#ats"
+		},
+		{
+			"include": "#data_format_version"
+		},
+		{
+			"include": "#ntag_ultralight_type"
+		},
+		{
+			"include": "#signature"
+		},
+		{
+			"include": "#mifare_version"
+		},
+		{
+			"include": "#counter_n"
+		},
+		{
+			"include": "#tearing_n"
+		},
+		{
+			"include": "#pages_total"
+		},
+		{
+			"include": "#pages_read"
+		},
+		{
+			"include": "#page_n"
+		},
+		{
+			"include": "#failed_authentication_attempts"
+		},
+		{
+			"include": "#mifare_classic_type"
+		},
+		{
+			"include": "#block_n"
+		},
+		{
+			"include": "#dsfid"
+		},
+		{
+			"include": "#afi"
+		},
+		{
+			"include": "#ic_reference"
+		},
+		{
+			"include": "#lock_dsfid"
+		},
+		{
+			"include": "#lock_afi"
+		},
+		{
+			"include": "#block_count"
+		},
+		{
+			"include": "#block_size"
+		},
+		{
+			"include": "#data_content"
+		},
+		{
+			"include": "#security_status"
+		},
+		{
+			"include": "#password_privacy"
+		},
+		{
+			"include": "#password_destroy"
+		},
+		{
+			"include": "#password_eas"
+		},
+		{
+			"include": "#privacy_mode"
+		},
+		{
+			"include": "#lock_eas"
+		}
+	],
+	"repository": {
+		"comment": {
+			"patterns": [
+				{
+					"name": "comment.line.flipper.nfc",
+					"match": "^#.*$"
+				}
+			]
+		},
+		"filetype": {
+			"name": "keyword.control.flipper.nfc",
+			"begin": "^Filetype: ",
+			"end": "$",
+			"patterns": [
+				{
+					"name": "entity.name.class.flipper.nfc",
+					"match": "Flipper NFC device"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"version": {
+			"name": "keyword.control.flipper.nfc",
+			"begin": "^Version: ",
+			"end": "$",
+			"patterns": [
+				{
+					"include": "#integer"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"device_type": {
+			"name": "keyword.control.flipper.nfc",
+			"begin": "^Device type: ",
+			"end": "$",
+			"patterns": [
+				{
+					"name": "entity.name.class.flipper.nfc",
+					"match": "(ISO14443-3A|ISO14443-3B|ISO14443-4A|ISO14443-4B|ISO15693-3|FeliCa|NTAG/Ultralight|Mifare Classic|Mifare DESFire|SLIX|ST25TB)"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"uid": {
+			"name": "keyword.control.flipper.nfc",
+			"begin": "^UID: ",
+			"end": "$",
+			"patterns": [
+				{
+					"include": "#eight-bytes"
+				},
+				{
+					"include": "#seven-bytes"
+				},
+				{
+					"include": "#four-bytes"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"atqa": {
+			"name": "keyword.control.flipper.nfc",
+			"begin": "^ATQA: ",
+			"end": "$",
+			"patterns": [
+				{
+					"include": "#two-bytes"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"sak": {
+			"name": "keyword.control.flipper.nfc",
+			"begin": "^SAK: ",
+			"end": "$",
+			"patterns": [
+				{
+					"include": "#one-byte"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"application_data": {
+			"name": "keyword.control.flipper.nfc",
+			"begin": "^Application data: ",
+			"end": "$",
+			"patterns": [
+				{
+					"include": "#four-bytes"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"protocol_info": {
+			"name": "keyword.control.flipper.nfc",
+			"begin": "^Protocol info: ",
+			"end": "$",
+			"patterns": [
+				{
+					"include": "#three-bytes"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"ats": {
+			"name": "keyword.control.flipper.nfc",
+			"begin": "^ATS: ",
+			"end": "$",
+			"patterns": [
+				{
+					"include": "#hex"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"data_format_version": {
+			"name": "keyword.control.flipper.nfc",
+			"begin": "^Data format version: ",
+			"end": "$",
+			"patterns": [
+				{
+					"include": "#integer"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"ntag_ultralight_type": {
+			"name": "keyword.control.flipper.nfc",
+			"begin": "^NTAG/Ultralight type: ",
+			"end": "$",
+			"patterns": [
+				{
+					"name": "entity.name.class.flipper.nfc",
+					"match": "(Mifare Ultralight|Mifare Ultralight 11|Mifare Ultralight 21|NTAG203|NTAG213|NTAG215|NTAG216|NTAG I2C 1K|NTAG I2C 2K|NTAG I2C Plus 1K|NTAG I2C Plus 2K)"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"signature": {
+			"name": "keyword.control.flipper.nfc",
+			"begin": "^Signature: ",
+			"end": "$",
+			"patterns": [
+				{
+					"include": "#hex"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"mifare_version": {
+			"name": "keyword.control.flipper.nfc",
+			"begin": "^Mifare version: ",
+			"end": "$",
+			"patterns": [
+				{
+					"include": "#hex"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"counter_n": {
+			"name": "keyword.control.flipper.nfc",
+			"begin": "^Counter \\d+: ",
+			"end": "$",
+			"patterns": [
+				{
+					"include": "#integer"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"tearing_n": {
+			"name": "keyword.control.flipper.nfc",
+			"begin": "^Tearing \\d+: ",
+			"end": "$",
+			"patterns": [
+				{
+					"include": "#one-byte"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"pages_total": {
+			"name": "keyword.control.flipper.nfc",
+			"begin": "^Pages total: ",
+			"end": "$",
+			"patterns": [
+				{
+					"include": "#integer"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"pages_read": {
+			"name": "keyword.control.flipper.nfc",
+			"begin": "^Pages read: ",
+			"end": "$",
+			"patterns": [
+				{
+					"include": "#integer"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"page_n": {
+			"name": "keyword.control.flipper.nfc",
+			"begin": "^Page \\d+: ",
+			"end": "$",
+			"patterns": [
+				{
+					"include": "#four-bytes"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"failed_authentication_attempts": {
+			"name": "keyword.control.flipper.nfc",
+			"begin": "^Failed authentication attempts: ",
+			"end": "$",
+			"patterns": [
+				{
+					"include": "#integer"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"mifare_classic_type": {
+			"name": "keyword.control.flipper.nfc",
+			"begin": "^Mifare Classic type: ",
+			"end": "$",
+			"patterns": [
+				{
+					"name": "entity.name.class.flipper.nfc",
+					"match": "(1K|4K)"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"block_n": {
+			"name": "keyword.control.flipper.nfc",
+			"begin": "^Block \\d+: ",
+			"end": "$",
+			"patterns": [
+				{
+					"include": "#hex"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"dsfid": {
+			"name": "keyword.control.flipper.nfc",
+			"begin": "^DSFID: ",
+			"end": "$",
+			"patterns": [
+				{
+					"include": "#one-byte"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"afi": {
+			"name": "keyword.control.flipper.nfc",
+			"begin": "^AFI: ",
+			"end": "$",
+			"patterns": [
+				{
+					"include": "#one-byte"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"ic_reference": {
+			"name": "keyword.control.flipper.nfc",
+			"begin": "^IC Reference: ",
+			"end": "$",
+			"patterns": [
+				{
+					"include": "#one-byte"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"lock_dsfid": {
+			"name": "keyword.control.flipper.nfc",
+			"begin": "^Lock DSFID: ",
+			"end": "$",
+			"patterns": [
+				{
+					"include": "#boolean"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"lock_afi": {
+			"name": "keyword.control.flipper.nfc",
+			"begin": "^Lock AFI: ",
+			"end": "$",
+			"patterns": [
+				{
+					"include": "#boolean"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"block_count": {
+			"name": "keyword.control.flipper.nfc",
+			"begin": "^Block Count: ",
+			"end": "$",
+			"patterns": [
+				{
+					"include": "#integer"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"block_size": {
+			"name": "keyword.control.flipper.nfc",
+			"begin": "^Block Size: ",
+			"end": "$",
+			"patterns": [
+				{
+					"include": "#one-byte"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"data_content": {
+			"name": "keyword.control.flipper.nfc",
+			"begin": "^Data Content: ",
+			"end": "$",
+			"patterns": [
+				{
+					"include": "#hex"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"security_status": {
+			"name": "keyword.control.flipper.nfc",
+			"begin": "^Security Status: ",
+			"end": "$",
+			"patterns": [
+				{
+					"include": "#hex"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"password_privacy": {
+			"name": "keyword.control.flipper.nfc",
+			"begin": "^Password Privacy: ",
+			"end": "$",
+			"patterns": [
+				{
+					"include": "#four-bytes"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"password_destroy": {
+			"name": "keyword.control.flipper.nfc",
+			"begin": "^Password Destroy: ",
+			"end": "$",
+			"patterns": [
+				{
+					"include": "#four-bytes"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"password_eas": {
+			"name": "keyword.control.flipper.nfc",
+			"begin": "^Password EAS: ",
+			"end": "$",
+			"patterns": [
+				{
+					"include": "#four-bytes"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"privacy_mode": {
+			"name": "keyword.control.flipper.nfc",
+			"begin": "^Privacy Mode: ",
+			"end": "$",
+			"patterns": [
+				{
+					"include": "#boolean"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"lock_eas": {
+			"name": "keyword.control.flipper.nfc",
+			"begin": "^Lock EAS: ",
+			"end": "$",
+			"patterns": [
+				{
+					"include": "#boolean"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"string": {
+			"name": "string.flipper.nfc",
+			"match": ".+"
+		},
+		"hex": {
+			"name": "constant.character.flipper.nfc",
+			"match": "[A-F0-9 ]+"
+		},
+		"one-byte": {
+			"name": "constant.character.flipper.nfc",
+			"match": "[A-F0-9]{2}"
+		},
+		"two-bytes": {
+			"name": "constant.character.flipper.nfc",
+			"match": "[A-F0-9]{2} [A-F0-9]{2}"
+		},
+		"three-bytes": {
+			"name": "constant.character.flipper.nfc",
+			"match": "([A-F0-9]{2} ){2}[A-F0-9]{2}"
+		},
+		"four-bytes": {
+			"name": "constant.character.flipper.nfc",
+			"match": "([A-F0-9]{2} ){3}[A-F0-9]{2}"
+		},
+		"seven-bytes": {
+			"name": "constant.character.flipper.nfc",
+			"match": "([A-F0-9]{2} ){6}[A-F0-9]{2}"
+		},
+		"eight-bytes": {
+			"name": "constant.character.flipper.nfc",
+			"match": "([A-F0-9]{2} ){7}[A-F0-9]{2}"
+		},
+		"integer": {
+			"name": "constant.numeric.flipper.nfc",
+			"match": "[0-9]+"
+		},
+		"float": {
+			"name": "constant.numeric.flipper.nfc",
+			"match": "[0-9]+(.[0-9]*)?"
+		},
+		"boolean": {
+			"name": "entity.name.class.flipper.nfc",
+			"match": "(true|false)"
+		},
+		"invalid-fallback": {
+			"name": "invalid.flipper.nfc",
+			"match": ".*"
+		}
+	},
+	"scopeName": "source.flipper.nfc"
+}

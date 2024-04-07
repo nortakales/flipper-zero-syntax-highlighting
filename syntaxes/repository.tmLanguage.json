@@ -1,0 +1,11 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Flipper Zero - Repository",
+	"repository": {
+		"testrepo": {
+			"name": "comment.line.flipper.rfid",
+			"match": "TESTING"
+		}
+	},
+	"scopeName": "source.flipper"
+}
