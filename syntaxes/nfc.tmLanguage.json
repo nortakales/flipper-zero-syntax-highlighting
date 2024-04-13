@@ -265,7 +265,7 @@
 			"patterns": [
 				{
 					"name": "entity.name.class.flipper.nfc",
-					"match": "(Mifare Ultralight|Mifare Ultralight 11|Mifare Ultralight 21|NTAG203|NTAG213|NTAG215|NTAG216|NTAG I2C 1K|NTAG I2C 2K|NTAG I2C Plus 1K|NTAG I2C Plus 2K)"
+					"match": "(Mifare Ultralight 11|Mifare Ultralight 21|Mifare Ultralight|NTAG203|NTAG213|NTAG215|NTAG216|NTAG I2C 1K|NTAG I2C 2K|NTAG I2C Plus 1K|NTAG I2C Plus 2K)"
 				},
 				{
 					"include": "#invalid-fallback"
