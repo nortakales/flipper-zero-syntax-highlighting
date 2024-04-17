@@ -1,0 +1,247 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Flipper Zero - Cross Remote",
+	"patterns": [
+		{
+			"include": "#comment"
+		},
+		{
+			"include": "#filetype"
+		},
+		{
+			"include": "#version"
+		},
+		{
+			"include": "#remote_type"
+		},
+		{
+			"include": "#name"
+		},
+		{
+			"include": "#time"
+		},
+		{
+			"include": "#type"
+		},
+		{
+			"include": "#protocol"
+		},
+		{
+			"include": "#address"
+		},
+		{
+			"include": "#command"
+		},
+		{
+			"include": "#frequency"
+		},
+		{
+			"include": "#duty_cycle"
+		},
+		{
+			"include": "#data"
+		},
+		{
+			"include": "#filename"
+		}
+	],
+	"repository": {
+		"comment": {
+			"patterns": [
+				{
+					"name": "comment.line.flipper.xr",
+					"match": "^#.*$"
+				}
+			]
+		},
+		"filetype": {
+			"name": "keyword.control.flipper.xr",
+			"begin": "^Filetype: ",
+			"end": "$",
+			"patterns": [
+				{
+					"name": "entity.name.class.flipper.xr",
+					"match": "Cross Remote File"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"version": {
+			"name": "keyword.control.flipper.xr",
+			"begin": "^Version: ",
+			"end": "$",
+			"patterns": [
+				{
+					"include": "#integer"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"remote_type": {
+			"name": "keyword.control.flipper.xr",
+			"begin": "^remote_type: ",
+			"end": "$",
+			"patterns": [
+				{
+					"name": "entity.name.class.flipper.xr",
+					"match": "(IR|SG|PAUSE)"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"name": {
+			"name": "keyword.control.flipper.xr",
+			"begin": "^name: ",
+			"end": "$",
+			"patterns": [
+				{
+					"include": "#string"
+				}
+			]
+		},
+		"time": {
+			"name": "keyword.control.flipper.xr",
+			"begin": "^time: ",
+			"end": "$",
+			"patterns": [
+				{
+					"include": "#integer"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"type": {
+			"name": "keyword.control.flipper.xr",
+			"begin": "^type: ",
+			"end": "$",
+			"patterns": [
+				{
+					"name": "entity.name.class.flipper.xr",
+					"match": "parsed|raw"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"protocol": {
+			"name": "keyword.control.flipper.xr",
+			"begin": "^protocol: ",
+			"end": "$",
+			"patterns": [
+				{
+					"name": "entity.name.class.flipper.xr",
+					"match": "(NEC|NECext|NEC42|NEC42ext|Samsung32|RC6|RC5|RC5X|SIRC|SIRC15|SIRC20|Kaseikyo|RCA)"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"address": {
+			"name": "keyword.control.flipper.xr",
+			"begin": "^address: ",
+			"end": "$",
+			"patterns": [
+				{
+					"include": "#hex"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"command": {
+			"name": "keyword.control.flipper.xr",
+			"begin": "^command: ",
+			"end": "$",
+			"patterns": [
+				{
+					"include": "#hex"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"frequency": {
+			"name": "keyword.control.flipper.xr",
+			"begin": "^frequency: ",
+			"end": "$",
+			"patterns": [
+				{
+					"include": "#integer"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"duty_cycle": {
+			"name": "keyword.control.flipper.xr",
+			"begin": "^duty_cycle: ",
+			"end": "$",
+			"patterns": [
+				{
+					"include": "#float"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"data": {
+			"name": "keyword.control.flipper.xr",
+			"begin": "^data: ",
+			"end": "$",
+			"patterns": [
+				{
+					"name": "constant.numeric.flipper.xr",
+					"match": "[0-9 ]+"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"filename": {
+			"name": "keyword.control.flipper.xr",
+			"begin": "^filename: ",
+			"end": "$",
+			"patterns": [
+				{
+					"include": "#string"
+				}
+			]
+		},
+		"string": {
+			"name": "string.flipper.xr",
+			"match": ".+"
+		},
+		"hex": {
+			"name": "constant.character.flipper.xr",
+			"match": "[A-F0-9 ]+"
+		},
+		"integer": {
+			"name": "constant.numeric.flipper.xr",
+			"match": "[0-9]+"
+		},
+		"float": {
+			"name": "constant.numeric.flipper.xr",
+			"match": "[0-9]+(.[0-9]*)?"
+		},
+		"invalid-fallback": {
+			"name": "invalid.flipper.xr",
+			"match": ".*"
+		}
+	},
+	"scopeName": "source.flipper.xr"
+}

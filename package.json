@@ -3,7 +3,7 @@
   "displayName": "Flipper Zero: Syntax Highlighting",
   "description": "Syntax highlighting for Flipper Zero files",
   "publisher": "nortakales",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "engines": {
     "vscode": "^1.86.0"
   },
@@ -12,7 +12,10 @@
     "nfc",
     "subghz",
     "rfid",
-    "infrared"
+    "infrared",
+    "picopass",
+    "xr",
+    "cross remote"
   ],
   "categories": [
     "Programming Languages"
@@ -70,6 +73,27 @@
           ".rfid"
         ],
         "configuration": "./language-configuration/rfid.json"
+      },
+      {
+        "id": "flipper-picopass",
+        "aliases": [
+          "Flipper Zero - Picopass"
+        ],
+        "extensions": [
+          ".picopass"
+        ],
+        "configuration": "./language-configuration/picopass.json"
+      },
+      {
+        "id": "flipper-cross-remote",
+        "aliases": [
+          "Flipper Zero - Cross Remote",
+          "Flipper Zero - XR"
+        ],
+        "extensions": [
+          ".xr"
+        ],
+        "configuration": "./language-configuration/xr.json"
       }
     ],
     "grammars": [
@@ -92,6 +116,16 @@
         "language": "flipper-rfid",
         "scopeName": "source.flipper.rfid",
         "path": "./syntaxes/rfid.tmLanguage.json"
+      },
+      {
+        "language": "flipper-picopass",
+        "scopeName": "source.flipper.picopass",
+        "path": "./syntaxes/picopass.tmLanguage.json"
+      },
+      {
+        "language": "flipper-cross-remote",
+        "scopeName": "source.flipper.xr",
+        "path": "./syntaxes/xr.tmLanguage.json"
       }
     ]
   }
