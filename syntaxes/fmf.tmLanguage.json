@@ -1,0 +1,170 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Flipper Zero - Music File",
+	"patterns": [
+		{
+			"include": "#comment"
+		},
+		{
+			"include": "#filetype"
+		},
+		{
+			"include": "#version"
+		},
+		{
+			"include": "#bpm"
+		},
+		{
+			"include": "#duration"
+		},
+		{
+			"include": "#octave"
+		},
+		{
+			"include": "#notes"
+		}
+	],
+	"repository": {
+		"comment": {
+			"patterns": [
+				{
+					"name": "comment.line.flipper.fmf",
+					"match": "^#.*$"
+				}
+			]
+		},
+		"filetype": {
+			"name": "keyword.control.flipper.fmf",
+			"begin": "^Filetype: ",
+			"end": "$",
+			"patterns": [
+				{
+					"name": "entity.name.class.flipper.fmf",
+					"match": "Flipper Music Format"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"version": {
+			"name": "keyword.control.flipper.fmf",
+			"begin": "^Version: ",
+			"end": "$",
+			"patterns": [
+				{
+					"include": "#integer"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"bpm": {
+			"name": "keyword.control.flipper.fmf",
+			"begin": "^BPM: ",
+			"end": "$",
+			"patterns": [
+				{
+					"include": "#integer"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"duration": {
+			"name": "keyword.control.flipper.fmf",
+			"begin": "^Duration: ",
+			"end": "$",
+			"patterns": [
+				{
+					"include": "#integer"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"octave": {
+			"name": "keyword.control.flipper.fmf",
+			"begin": "^Octave: ",
+			"end": "$",
+			"patterns": [
+				{
+					"include": "#integer"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"notes": {
+			"name": "keyword.control.flipper.fmf",
+			"begin": "^Notes: ",
+			"end": "$",
+			"patterns": [
+				{
+					"name": "constant.character.flipper.fmf",
+					"match": "[0-9]{0,3}[A-GP]#?[0-9]{0,2}\\.{0,16}"
+				},
+				{
+					"name": "punctuation.separator.dictionary.pair.fmf",
+					"match": ", ?"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"string": {
+			"name": "string.flipper.fmf",
+			"match": ".+"
+		},
+		"hex": {
+			"name": "constant.character.flipper.fmf",
+			"match": "[A-F0-9 ]+"
+		},
+		"one-byte": {
+			"name": "constant.character.flipper.fmf",
+			"match": "[A-F0-9]{2}"
+		},
+		"two-bytes": {
+			"name": "constant.character.flipper.fmf",
+			"match": "[A-F0-9]{2} [A-F0-9]{2}"
+		},
+		"three-bytes": {
+			"name": "constant.character.flipper.fmf",
+			"match": "([A-F0-9]{2} ){2}[A-F0-9]{2}"
+		},
+		"four-bytes": {
+			"name": "constant.character.flipper.fmf",
+			"match": "([A-F0-9]{2} ){3}[A-F0-9]{2}"
+		},
+		"seven-bytes": {
+			"name": "constant.character.flipper.fmf",
+			"match": "([A-F0-9]{2} ){6}[A-F0-9]{2}"
+		},
+		"eight-bytes": {
+			"name": "constant.character.flipper.fmf",
+			"match": "([A-F0-9]{2} ){7}[A-F0-9]{2}"
+		},
+		"integer": {
+			"name": "constant.numeric.flipper.fmf",
+			"match": "[0-9]+"
+		},
+		"float": {
+			"name": "constant.numeric.flipper.fmf",
+			"match": "[0-9]+(.[0-9]*)?"
+		},
+		"boolean": {
+			"name": "entity.name.class.flipper.fmf",
+			"match": "(true|false)"
+		},
+		"invalid-fallback": {
+			"name": "invalid.flipper.fmf",
+			"match": ".*"
+		}
+	},
+	"scopeName": "source.flipper.fmf"
+}

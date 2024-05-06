@@ -1,5 +1,13 @@
 # Change Log
 
+## [1.2.0] - 2024-05-05
+
+- Added support for:
+  - `.ibtn`
+  - `.u2f`
+  - `.fmf` (Flipper Music File)
+- Fixed `NECext`, `NEC42` and `NEC42ext` highlighting in `.ir` and `.xr`
+
 ## [1.1.0] - 2024-04-18
 
 - Added support for:

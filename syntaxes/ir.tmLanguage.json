@@ -103,7 +103,7 @@
 			"patterns": [
 				{
 					"name": "entity.name.class.flipper.ir",
-					"match": "(NEC|NECext|NEC42|NEC42ext|Samsung32|RC6|RC5|RC5X|SIRC|SIRC15|SIRC20|Kaseikyo|RCA)"
+					"match": "(NEC42ext|NECext|NEC42|NEC|Samsung32|RC6|RC5|RC5X|SIRC|SIRC15|SIRC20|Kaseikyo|RCA)"
 				},
 				{
 					"include": "#invalid-fallback"

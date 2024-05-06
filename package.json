@@ -3,7 +3,7 @@
   "displayName": "Flipper Zero: Syntax Highlighting",
   "description": "Syntax highlighting for Flipper Zero files",
   "publisher": "nortakales",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "engines": {
     "vscode": "^1.86.0"
   },
@@ -75,6 +75,26 @@
         "configuration": "./language-configuration/rfid.json"
       },
       {
+        "id": "flipper-ibtn",
+        "aliases": [
+          "Flipper Zero - iButton"
+        ],
+        "extensions": [
+          ".ibtn"
+        ],
+        "configuration": "./language-configuration/ibtn.json"
+      },
+      {
+        "id": "flipper-u2f",
+        "aliases": [
+          "Flipper Zero - U2F"
+        ],
+        "extensions": [
+          ".u2f"
+        ],
+        "configuration": "./language-configuration/u2f.json"
+      },
+      {
         "id": "flipper-picopass",
         "aliases": [
           "Flipper Zero - Picopass"
@@ -94,6 +114,16 @@
           ".xr"
         ],
         "configuration": "./language-configuration/xr.json"
+      },
+      {
+        "id": "flipper-music-file",
+        "aliases": [
+          "Flipper Zero - Music File"
+        ],
+        "extensions": [
+          ".fmf"
+        ],
+        "configuration": "./language-configuration/fmf.json"
       }
     ],
     "grammars": [
@@ -118,6 +148,16 @@
         "path": "./syntaxes/rfid.tmLanguage.json"
       },
       {
+        "language": "flipper-ibtn",
+        "scopeName": "source.flipper.ibtn",
+        "path": "./syntaxes/ibtn.tmLanguage.json"
+      },
+      {
+        "language": "flipper-u2f",
+        "scopeName": "source.flipper.u2f",
+        "path": "./syntaxes/u2f.tmLanguage.json"
+      },
+      {
         "language": "flipper-picopass",
         "scopeName": "source.flipper.picopass",
         "path": "./syntaxes/picopass.tmLanguage.json"
@@ -126,6 +166,11 @@
         "language": "flipper-cross-remote",
         "scopeName": "source.flipper.xr",
         "path": "./syntaxes/xr.tmLanguage.json"
+      },
+      {
+        "language": "flipper-music-file",
+        "scopeName": "source.flipper.fmf",
+        "path": "./syntaxes/fmf.tmLanguage.json"
       }
     ]
   }
