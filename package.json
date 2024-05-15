@@ -3,7 +3,7 @@
   "displayName": "Flipper Zero: Syntax Highlighting",
   "description": "Syntax highlighting for Flipper Zero files",
   "publisher": "nortakales",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "engines": {
     "vscode": "^1.86.0"
   },
@@ -15,7 +15,14 @@
     "infrared",
     "picopass",
     "xr",
-    "cross remote"
+    "cross remote",
+    "bad usb",
+    "ducky script",
+    "flipper music file",
+    "fmf",
+    "picopass",
+    "u2f",
+    "ibtn"
   ],
   "categories": [
     "Programming Languages"
@@ -95,6 +102,16 @@
         "configuration": "./language-configuration/u2f.json"
       },
       {
+        "id": "flipper-bad-usb",
+        "aliases": [
+          "Flipper Zero - Bad USB"
+        ],
+        "extensions": [
+          ".txt"
+        ],
+        "configuration": "./language-configuration/bad-usb.json"
+      },
+      {
         "id": "flipper-picopass",
         "aliases": [
           "Flipper Zero - Picopass"
@@ -156,6 +173,11 @@
         "language": "flipper-u2f",
         "scopeName": "source.flipper.u2f",
         "path": "./syntaxes/u2f.tmLanguage.json"
+      },
+      {
+        "language": "flipper-bad-usb",
+        "scopeName": "source.flipper.bad-usb",
+        "path": "./syntaxes/bad-usb.tmLanguage.json"
       },
       {
         "language": "flipper-picopass",

@@ -1,0 +1,192 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Flipper Zero - Bad USB",
+	"patterns": [
+		{
+			"include": "#comment"
+		},
+		{
+			"include": "#command"
+		},
+		{
+			"include": "#delay-repeat"
+		},
+		{
+			"include": "#character-code"
+		},
+		{
+			"include": "#string"
+		},
+		{
+			"include": "#modifier-key"
+		},
+		{
+			"include": "#special-key"
+		},
+		{
+			"include": "#sysreq"
+		},
+		{
+			"include": "#media"
+		},
+		{
+			"include": "#usb-id"
+		},
+		{
+			"include": "#testing"
+		}
+	],
+	"repository": {
+		"comment": {
+			"patterns": [
+				{
+					"name": "comment.line.flipper.bad-usb",
+					"match": "^REM.*$"
+				}
+			]
+		},
+		"command": {
+			"patterns": [
+				{
+					"name": "entity.name.class.flipper.bad-usb",
+					"match": "^WAIT_FOR_BUTTON_PRESS$"
+				}
+			]
+		},
+		"delay-repeat": {
+			"name": "entity.name.class.flipper.bad-usb",
+			"begin": "^(DELAY|DEFAULT_?DELAY|STRING_?DELAY|DEFAULT_STRING_DELAY|DEFAULTSTRINGDELAY|REPEAT) ",
+			"end": "$",
+			"patterns": [
+				{
+					"include": "#integer"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"character-code": {
+			"name": "entity.name.class.flipper.bad-usb",
+			"begin": "^ALTCHAR ",
+			"end": "$",
+			"patterns": [
+				{
+					"include": "#integer"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"string": {
+			"name": "entity.name.class.flipper.bad-usb",
+			"begin": "^(STRINGLN|STRING|ALTSTRING|ALTCODE) ",
+			"end": "$",
+			"patterns": [
+				{
+					"include": "#string-include"
+				}
+			]
+		},
+		"modifier-key": {
+			"name": "keyword.control.flipper.bad-usb",
+			"begin": "^(CONTROL|CTRL|SHIFT|ALT|WINDOWS|GUI|CTRL-ALT|CTRL-SHIFT|ALT-SHIFT|ALT-GUI|GUI-SHIFT|GUI-CTRL|HOLD|RELEASE|GLOBE) ",
+			"end": "$",
+			"patterns": [
+				{
+					"include": "#special-key-include"
+				},
+				{
+					"include": "#single-character"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"special-key": {
+			"name": "constant.character.flipper.bad-usb",
+			"match": "^(DOWNARROW|DOWN|LEFTARROW|LEFT|RIGHTARROW|RIGHT|UPARROW|UP|ENTER|DELETE|BACKSPACE|END|HOME|ESCAPE|ESC|INSERT|PAGEUP|PAGEDOWN|CAPSLOCK|NUMLOCK|SCROLLLOCK|PRINTSCREEN|BREAK|PAUSE|SPACE|TAB|MENU|APP|F10|F11|F12|F1|F2|F3|F4|F5|F6|F7|F8|F9)$"
+		},
+		"sysreq": {
+			"name": "entity.name.class.flipper.bad-usb",
+			"begin": "^SYSREQ ",
+			"end": "$",
+			"patterns": [
+				{
+					"include": "#single-alphanumeric"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"media": {
+			"name": "entity.name.class.flipper.bad-usb",
+			"begin": "^MEDIA ",
+			"end": "$",
+			"patterns": [
+				{
+					"name": "constant.character.flipper.bad-usb",
+					"match": "(POWER|REBOOT|SLEEP|LOGOFF|EXIT|HOME|BACK|FORWARD|REFRESH|SNAPSHOT|PLAY|PAUSE|PLAY_PAUSE|NEXT_TRACK|PREV_TRACK|STOP|EJECT|MUTE|VOLUME_UP|VOLUME_DOWN|FN|BRIGHT_UP|BRIGHT_DOWN)"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"usb-id": {
+			"name": "entity.name.class.flipper.bad-usb",
+			"begin": "^ID ",
+			"end": "$",
+			"patterns": [
+				{
+					"match": "([A-Fa-f0-9]+):([A-Fa-f0-9]+)( (.+):(.+))?",
+					"captures": {
+						"1": {
+							"name": "constant.character.flipper.bad-usb"
+						},
+						"2": {
+							"name": "constant.character.flipper.bad-usb"
+						},
+						"4": {
+							"name": "string.flipper.bad-usb"
+						},
+						"5": {
+							"name": "string.flipper.bad-usb"
+						}
+					}
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"single-character": {
+			"name": "constant.character.flipper.bad-usb",
+			"match": "\\S"
+		},
+		"single-alphanumeric": {
+			"name": "constant.character.flipper.bad-usb",
+			"match": "[a-z0-9]"
+		},
+		"special-key-include": {
+			"name": "constant.character.flipper.bad-usb",
+			"match": "(DOWNARROW|DOWN|LEFTARROW|LEFT|RIGHTARROW|RIGHT|UPARROW|UP|ENTER|DELETE|BACKSPACE|END|HOME|ESCAPE|ESC|INSERT|PAGEUP|PAGEDOWN|CAPSLOCK|NUMLOCK|SCROLLLOCK|PRINTSCREEN|BREAK|PAUSE|SPACE|TAB|MENU|APP|F10|F11|F12|F1|F2|F3|F4|F5|F6|F7|F8|F9)"
+		},
+		"string-include": {
+			"name": "string.flipper.bad-usb",
+			"match": ".+"
+		},
+		"integer": {
+			"name": "constant.numeric.flipper.bad-usb",
+			"match": "[0-9]+"
+		},
+		"invalid-fallback": {
+			"name": "invalid.flipper.bad-usb",
+			"match": ".*"
+		}
+	},
+	"scopeName": "source.flipper.bad-usb"
+}

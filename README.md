@@ -6,9 +6,13 @@ This is a VSCode extension which adds syntax highlighting for Flipper Zero files
 
 Still missing support for BadUSB. I will add this soon. Also, probably missing support for older version of Flipper files since the some of the formats have changed a bit over time.
 
-I'll also add highlighting for other various Flipper files related to common apps, or app development.
+I'll also add highlighting for other various Flipper files related to common apps, or app development (.fam).
 
 # Change Log
+
+## [1.3.0] - 2024-05-15
+
+- Added support for Bad USB scripts (DuckyScript), including the additional Flipper Zero commands
 
 ## [1.2.0] - 2024-05-05
 

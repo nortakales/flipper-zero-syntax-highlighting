@@ -1,5 +1,9 @@
 # Change Log
 
+## [1.3.0] - 2024-05-15
+
+- Added support for Bad USB scripts (DuckyScript), including the additional Flipper Zero commands
+
 ## [1.2.0] - 2024-05-05
 
 - Added support for:
