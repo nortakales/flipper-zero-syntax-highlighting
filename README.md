@@ -10,9 +10,11 @@ I'll also add highlighting for other various Flipper files related to common app
 
 # Change Log
 
-## [1.3.0] - 2024-05-15
+## [1.3.0] - 2024-05-19
 
-- Added support for Bad USB scripts (DuckyScript), including the additional Flipper Zero commands
+- Added support for:
+  - Bad USB scripts (DuckyScript), including the additional Flipper Zero commands
+  - `.fam` - Flipper Application Manifest files
 
 ## [1.2.0] - 2024-05-05
 

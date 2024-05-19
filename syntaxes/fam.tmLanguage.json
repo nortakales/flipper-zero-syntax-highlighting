@@ -1,0 +1,346 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Flipper Zero - Application Manifest",
+	"patterns": [
+		{
+			"include": "#comment"
+		},
+		{
+			"include": "#app"
+		}
+	],
+	"repository": {
+		"comment": {
+			"patterns": [
+				{
+					"name": "comment.line.flipper.fam",
+					"match": "#.*$"
+				}
+			]
+		},
+		"app": {
+			"begin": "(App)(\\()",
+			"beginCaptures": {
+				"1": {
+					"name": "entity.name.class.flipper.fam"
+				},
+				"2": {
+					"name": "punctuation.definition.fam"
+				}
+			},
+			"end": "(\\))",
+			"endCaptures": {
+				"1": {
+					"name": "punctuation.definition.fam"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#comment"
+				},
+				{
+					"include": "#string-properties"
+				},
+				{
+					"include": "#apptype"
+				},
+				{
+					"include": "#string-array-properties"
+				},
+				{
+					"include": "#stack_size"
+				},
+				{
+					"include": "#order"
+				},
+				{
+					"include": "#fap_version"
+				},
+				{
+					"include": "#fap_icon"
+				}
+			]
+		},
+		"string-properties": {
+			"begin": "\\b(appid|name|entry_point|icon|resources|fap_category|fap_description|fap_author|fap_weburl|fap_icon_assets|fap_file_assets)(=)(\")",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.control.flipper.fam"
+				},
+				"2": {
+					"name": "punctuation.separator.fam"
+				},
+				"3": {
+					"name": "punctuation.definition.fam"
+				}
+			},
+			"end": "(\")(,)",
+			"endCaptures": {
+				"1": {
+					"name": "punctuation.definition.fam"
+				},
+				"2": {
+					"name": "punctuation.separator.fam"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#string"
+				}
+			]
+		},
+		"apptype": {
+			"begin": "(apptype)(=)",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.control.flipper.fam"
+				},
+				"2": {
+					"name": "punctuation.separator.fam"
+				}
+			},
+			"end": "(,)",
+			"endCaptures": {
+				"1": {
+					"name": "punctuation.separator.fam"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#apptype-enum"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"string-array-properties": {
+			"begin": "\\b(cdefines|requires|conflicts|provides|targets|sources|fap_libs)(=)",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.control.flipper.fam"
+				},
+				"2": {
+					"name": "punctuation.separator.fam"
+				}
+			},
+			"end": "(,)",
+			"endCaptures": {
+				"1": {
+					"name": "punctuation.separator.fam"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#string-array"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"stack_size": {
+			"begin": "(stack_size)(=)",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.control.flipper.fam"
+				},
+				"2": {
+					"name": "punctuation.separator.fam"
+				}
+			},
+			"end": "(,)",
+			"endCaptures": {
+				"1": {
+					"name": "punctuation.separator.fam"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#integer"
+				},
+				{
+					"include": "#integer-operator"
+				},
+				{
+					"include": "#whitespace"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"order": {
+			"begin": "(order)(=)",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.control.flipper.fam"
+				},
+				"2": {
+					"name": "punctuation.separator.fam"
+				}
+			},
+			"end": "(,)",
+			"endCaptures": {
+				"1": {
+					"name": "punctuation.separator.fam"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#integer"
+				}
+			]
+		},
+		"fap_version": {
+			"begin": "(fap_version)(=)(\\()",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.control.flipper.fam"
+				},
+				"2": {
+					"name": "punctuation.separator.fam"
+				},
+				"3": {
+					"name": "punctuation.definition.fam"
+				}
+			},
+			"end": "(\\))(,)",
+			"endCaptures": {
+				"1": {
+					"name": "punctuation.definition.fam"
+				},
+				"2": {
+					"name": "punctuation.separator.fam"
+				}
+			},
+			"patterns": [
+				{
+					"match": "(\\d+)(,)\\s*(\\d+)((,)(\\d+))*",
+					"captures": {
+						"1": {
+							"name": "constant.numeric.flipper.fam"
+						},
+						"2": {
+							"name": "punctuation.separator.fam"
+						},
+						"3": {
+							"name": "constant.numeric.flipper.fam"
+						},
+						"5": {
+							"name": "punctuation.separator.fam"
+						},
+						"6": {
+							"name": "constant.numeric.flipper.fam"
+						}
+					}
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"fap_icon": {
+			"begin": "(fap_icon)(=)(\")",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.control.flipper.fam"
+				},
+				"2": {
+					"name": "punctuation.separator.fam"
+				},
+				"3": {
+					"name": "punctuation.definition.fam"
+				}
+			},
+			"end": "(\")(,)",
+			"endCaptures": {
+				"1": {
+					"name": "punctuation.definition.fam"
+				},
+				"2": {
+					"name": "punctuation.separator.fam"
+				}
+			},
+			"patterns": [
+				{
+					"name": "string.flipper.fam",
+					"match": "[^\"]+\\.png"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"string-array": {
+			"name": "invalid.flipper.fam",
+			"begin": "\\[",
+			"beginCaptures": {
+				"0": {
+					"name": "punctuation.definition.fam"
+				}
+			},
+			"end": "\\]",
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.definition.fam"
+				}
+			},
+			"patterns": [
+				{
+					"match": "(\")([^\"]+)(\")(,?)",
+					"captures": {
+						"1": {
+							"name": "punctuation.definition.fam"
+						},
+						"2": {
+							"name": "string.flipper.fam"
+						},
+						"3": {
+							"name": "punctuation.definition.fam"
+						},
+						"4": {
+							"name": "punctuation.separator.fam"
+						}
+					}
+				}
+			]
+		},
+		"string": {
+			"name": "string.flipper.fam",
+			"match": "[^\"]+"
+		},
+		"whitespace": {
+			"name": "punctuation.flipper.fam",
+			"match": "\\s+"
+		},
+		"integer": {
+			"name": "constant.numeric.flipper.fam",
+			"match": "[0-9]+"
+		},
+		"integer-operator": {
+			"name": "punctuation.flipper.fam",
+			"match": "[+\\-\\*/]"
+		},
+		"apptype-enum": {
+			"name": "string.flipper.fam",
+			"match": "(FlipperAppType)(\\.)(SERVICE|SYSTEM|APP|PLUGIN|DEBUG|ARCHIVE|SETTINGS|STARTUP|EXTERNAL|METAPACKAGE)",
+			"captures": {
+				"1": {
+					"name": "entity.name.class.flipper.fam"
+				},
+				"2": {
+					"name": "punctuation.separator.fam"
+				},
+				"3": {
+					"name": "constant.character.flipper.fam"
+				}
+			}
+		},
+		"invalid-fallback": {
+			"name": "invalid.flipper.fam",
+			"match": ".*"
+		}
+	},
+	"scopeName": "source.flipper.fam"
+}

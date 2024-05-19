@@ -141,6 +141,16 @@
           ".fmf"
         ],
         "configuration": "./language-configuration/fmf.json"
+      },
+      {
+        "id": "flipper-application-manifest",
+        "aliases": [
+          "Flipper Zero - Application Manifest"
+        ],
+        "extensions": [
+          ".fam"
+        ],
+        "configuration": "./language-configuration/fam.json"
       }
     ],
     "grammars": [
@@ -193,6 +203,11 @@
         "language": "flipper-music-file",
         "scopeName": "source.flipper.fmf",
         "path": "./syntaxes/fmf.tmLanguage.json"
+      },
+      {
+        "language": "flipper-application-manifest",
+        "scopeName": "source.flipper.fam",
+        "path": "./syntaxes/fam.tmLanguage.json"
       }
     ]
   }
