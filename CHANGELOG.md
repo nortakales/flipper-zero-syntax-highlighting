@@ -1,5 +1,9 @@
 # Change Log
 
+## [1.4.0] - 2024-09-02
+
+- Added highlighting for new `Capabilities` field in `.nfc` files
+
 ## [1.3.0] - 2024-05-19
 
 - Added support for:

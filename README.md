@@ -4,11 +4,15 @@ This is a VSCode extension which adds syntax highlighting for Flipper Zero files
 
 # Known Issues
 
-Still missing support for BadUSB. I will add this soon. Also, probably missing support for older version of Flipper files since the some of the formats have changed a bit over time.
+Probably missing support for older version of Flipper files since the some of the formats have changed a bit over time.
 
 I'll also add highlighting for other various Flipper files related to common apps, or app development (.fam).
 
 # Change Log
+
+## [1.4.0] - 2024-09-02
+
+- Added highlighting for new `Capabilities` field in `.nfc` files
 
 ## [1.3.0] - 2024-05-19
 

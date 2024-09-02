@@ -96,6 +96,9 @@
 			"include": "#security_status"
 		},
 		{
+			"include": "#capabilities"
+		},
+		{
 			"include": "#password_privacy"
 		},
 		{
@@ -514,6 +517,20 @@
 			"patterns": [
 				{
 					"include": "#hex"
+				},
+				{
+					"include": "#invalid-fallback"
+				}
+			]
+		},
+		"capabilities": {
+			"name": "keyword.control.flipper.nfc",
+			"begin": "^Capabilities: ",
+			"end": "$",
+			"patterns": [
+				{
+					"name": "entity.name.class.flipper.nfc",
+					"match": "(Default|AcceptAllPasswords)"
 				},
 				{
 					"include": "#invalid-fallback"
